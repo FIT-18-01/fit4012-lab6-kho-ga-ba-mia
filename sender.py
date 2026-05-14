@@ -1,12 +1,17 @@
 import os
 import socket
 import sys
+import time
+import traceback
 from pathlib import Path
 
 # Ensure UTF-8 output for accented Vietnamese text on Windows consoles.
 stdout_encoding = (sys.stdout.encoding or "").lower()
 if stdout_encoding != 'utf-8':
-    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    except Exception:
+        pass
 
 from aes_socket_utils import build_data_packet, build_key_packet, encrypt_aes_cbc
 
@@ -29,12 +34,25 @@ def get_plaintext() -> bytes:
     return input("Nhập bản tin: ").encode("utf-8")
 
 
+RETRY_ATTEMPTS = 5
+RETRY_DELAY_SECONDS = 0.5
+
+
 def send_packet(host: str, port: int, packet: bytes) -> None:
     """Open one TCP connection and send all bytes."""
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-        sock.settimeout(TIMEOUT)
-        sock.connect((host, port))
-        sock.sendall(packet)
+    last_error = None
+    for attempt in range(1, RETRY_ATTEMPTS + 1):
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+                sock.settimeout(TIMEOUT)
+                sock.connect((host, port))
+                sock.sendall(packet)
+            return
+        except (ConnectionRefusedError, socket.timeout, OSError) as exc:
+            last_error = exc
+            if attempt == RETRY_ATTEMPTS:
+                raise
+            time.sleep(RETRY_DELAY_SECONDS)
 
 
 def main() -> None:
@@ -71,4 +89,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:
+        traceback.print_exc()
+        raise

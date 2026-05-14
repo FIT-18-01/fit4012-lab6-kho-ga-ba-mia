@@ -16,8 +16,8 @@ Lab này kế thừa ý tưởng từ Lab 3 DES Socket, nhưng nâng cấp theo 
 
 ## Team members
 
-- **Thành viên 1**: TODO_MEMBER_1 - MSSV: TODO_MEMBER_1_ID
-- **Thành viên 2**: TODO_MEMBER_2 - MSSV: TODO_MEMBER_2_ID
+- **Thành viên 1**: Phùn Quang Huy - MSSV: 1871020311
+- **Thành viên 2**: Nguyễn Minh Đức - MSSV: 1871020149
 
 ## Task division
 

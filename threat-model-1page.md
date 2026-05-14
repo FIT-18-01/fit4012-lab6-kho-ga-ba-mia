@@ -2,8 +2,8 @@
 
 ## Thông tin nhóm
 
-- Thành viên 1: TODO_STUDENT
-- Thành viên 2: TODO_STUDENT
+- Thành viên 1: Phùn Quang Huy - MSSV: 1871020311
+- Thành viên 2: Nguyễn Minh Đức - MSSV: 1871020149
 
 ## Assets
 

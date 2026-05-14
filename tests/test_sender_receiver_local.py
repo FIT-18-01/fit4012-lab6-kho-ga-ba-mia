@@ -55,6 +55,8 @@ def test_local_sender_receiver_roundtrip():
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         text=True,
+        encoding="utf-8",
+        errors="replace",
     )
 
     try:
@@ -66,6 +68,8 @@ def test_local_sender_receiver_roundtrip():
             env=sender_env,
             capture_output=True,
             text=True,
+            encoding="utf-8",
+            errors="replace",
             timeout=10,
             check=True,
         )

@@ -1,6 +1,12 @@
 import os
 import socket
+import sys
 from pathlib import Path
+
+# Ensure UTF-8 output for accented Vietnamese text on Windows consoles.
+stdout_encoding = (sys.stdout.encoding or "").lower()
+if stdout_encoding != 'utf-8':
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 from aes_socket_utils import build_data_packet, build_key_packet, encrypt_aes_cbc
 

@@ -21,9 +21,9 @@ Lab này kế thừa ý tưởng từ Lab 3 DES Socket, nhưng nâng cấp theo 
 
 ## Task division
 
-- **Thành viên 1 phụ trách chính**: TODO_ROLE_MEMBER_1
-- **Thành viên 2 phụ trách chính**: TODO_ROLE_MEMBER_2
-- **Phần làm chung**: TODO_SHARED_WORK
+- **Thành viên 1 phụ trách chính**: Phùn Quang Huy - triển khai `sender.py`, xây dựng AES-CBC và packet builder.
+- **Thành viên 2 phụ trách chính**: Nguyễn Minh Đức - triển khai `receiver.py`, viết test, và tổng hợp báo cáo/threat model.
+- **Phần làm chung**: Thiết kế giao thức key/data channel, kiểm thử end-to-end, và hoàn thiện tài liệu.
 
 ## Demo roles
 

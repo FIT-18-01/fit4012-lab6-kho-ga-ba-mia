@@ -11,7 +11,9 @@ TODO_STUDENT: Viết 4-6 dòng mô tả mục tiêu của bài lab: gửi/nhận
 
 ## Phân công thực hiện
 
-TODO_STUDENT: Mô tả ai phụ trách sender, ai phụ trách receiver, ai phụ trách test/log/threat model, và phần làm chung.
+- Phùn Quang Huy (Thành viên 1): xây dựng `sender.py`, tạo AES key/IV, mã hóa AES-CBC, và tạo các packet gửi qua kênh khóa và dữ liệu.
+- Nguyễn Minh Đức (Thành viên 2): xây dựng `receiver.py`, giải mã AES-CBC, viết test case cho giao thức và kiểm thử local.
+- Phần làm chung: xác định giao thức truyền key/data, xử lý PKCS#7 padding, và hoàn thiện báo cáo cùng threat model.
 
 ## Cách làm
 
